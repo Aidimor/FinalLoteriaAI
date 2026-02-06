@@ -89,7 +89,7 @@ public class ImageInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         currentMousePosition = Input.mousePosition;
         mouseDelta = currentMousePosition - lastMousePosition;
 
-        //Debug.Log($"Mouse Delta: {mouseDelta}");
+
 
         float rotationAmountX = mouseDelta.x * rotationSpeed * Time.deltaTime;
         float rotationAmountY = mouseDelta.y * (rotationSpeed / 2) * Time.deltaTime;
@@ -113,10 +113,26 @@ public class ImageInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
         if (!_controlador._changingCard)
         {
-            _controlador.DectivateAutomatic();
-
-            StartCoroutine(_controlador.NewCardNumerator());
-            //  GetComponent<VibrationController>().SmallVibration();
+            switch (_controlador._gameStarts)
+            {
+                case false:
+                    StartCoroutine(_controlador.NewCardNumerator());
+                    break;
+                case true:
+                    switch (_controlador._automaticOn)
+                    {
+                        case false:
+                            StartCoroutine(_controlador.NewCardNumerator());
+                            break;
+                        case true:
+                            _controlador.DectivateAutomatic();
+                            break;
+                    }
+                
+                    break;
+            }
+         
+            //StartCoroutine(_controlador.NewCardNumerator());        
         }
     }
 }

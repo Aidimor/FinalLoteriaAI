@@ -116,6 +116,9 @@ public class ControladorCarta : MonoBehaviour
     public Animator _loteriaIconAnimator;
     public Animator _mainMenuAnimator;
 
+    public Image _autoBackground;
+    public Color[] _autoBackgroundColor;
+    public Animator _shine;
     public bool _gameStarts;
 
     // Start is called before the first frame update
@@ -200,37 +203,81 @@ public class ControladorCarta : MonoBehaviour
         _cardParentUI.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(_cardParentUI.GetComponent<RectTransform>().anchoredPosition, new Vector2(_cardUiPos, _cardParentUI.GetComponent<RectTransform>().anchoredPosition.y), 5 * Time.deltaTime);
         _cardParentUIleft.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(_cardParentUIleft.GetComponent<RectTransform>().anchoredPosition, new Vector2(_cardLeftUiPos, _cardParentUIleft.GetComponent<RectTransform>().anchoredPosition.y), 5 * Time.deltaTime);
 
-
-        if (_automaticOn && !_changingCard && !_topMenuDisplayed)
+        if (_gameStarts)
         {
-            _automaticTimer -= Time.deltaTime;
-            _timerText.text = _automaticTimer.ToString("f0");
-            _timerImage.fillAmount = _automaticTimer / _maxTimer;
-            if(_automaticTimer <= 0)
+            if (numbers.Count <= 0)
+            {       
+                StartCoroutine(LastCardNumerator());
+                _gameStarts = false;
+            }
+            else
             {
-                _timerText.text = "";
-                StartCoroutine(NewCardNumerator());
+                if (_automaticOn && !_changingCard && !_topMenuDisplayed)
+                {
+                    _automaticTimer -= Time.deltaTime;
+                    _timerText.text = _automaticTimer.ToString("f0");
+                    _timerImage.fillAmount = _automaticTimer / _maxTimer;
+                    if (_automaticTimer <= 0)
+                    {
+                        _timerText.text = "";
+                        StartCoroutine(NewCardNumerator());
+                    }
+                }
+
+            }
+
+            if (_loteriaTimer <= 0)
+            {
+                _automaticOn = false;
+                _loteriaCenterImage.sprite = _allCards[OnCard - 1]._cardSprite;
+                _loteriaLastCardName.text = _allCards[OnCard - 1]._name;
+                _loteriaParent.SetActive(true);
+                MainCard.gameObject.SetActive(false);
+                _topMenuAnimator.SetBool("TopIn", false);
+                _mainMenuAnimator.SetBool("MenuIn", false);
+                _cardParentUI.gameObject.SetActive(false);
+                LeftCardsCreation();
+                _gameStarts = false;
+
             }
         }
+
 
         _loteriaFillImage.fillAmount = _loteriaTimer;
   
 
-        if(_loteriaTimer <= 0 && _gameStarts)
-        {
-            Debug.Log("Loteria");
-            _loteriaCenterImage.sprite = _allCards[OnCard - 1]._cardSprite;
-            _loteriaLastCardName.text = _allCards[OnCard - 1]._name;
-            _loteriaParent.SetActive(true);
-            MainCard.gameObject.SetActive(false);
-            _topMenuAnimator.SetBool("TopIn", false);
-            _mainMenuAnimator.SetBool("MenuIn", false);
-            _cardParentUI.gameObject.SetActive(false);
-            LeftCardsCreation();
-            _gameStarts = false;
-        }
+    
 
         _maxTimerButtonText.text = _maxTimer.ToString();
+
+        switch (_automaticOn)
+        {
+            case true:
+                _autoBackground.color = Color.Lerp(_autoBackground.color, _autoBackgroundColor[1], 2 * Time.deltaTime);
+                break;
+            case false:
+                _autoBackground.color = Color.Lerp(_autoBackground.color, _autoBackgroundColor[0], 2 * Time.deltaTime);
+                break;
+        }
+    
+    }
+
+    public IEnumerator LastCardNumerator()
+    {
+        _loteriaCenterImage.sprite = _allCards[OnCard - 1]._cardSprite;
+        _loteriaLastCardName.text = _allCards[OnCard - 1]._name;
+        Debug.Log("repite");
+        LeftCardsCreation();
+        yield return new WaitForSeconds(_maxTimer + 1);
+
+        _loteriaParent.SetActive(true);
+   
+        MainCard.gameObject.SetActive(false);
+        _topMenuAnimator.SetBool("TopIn", false);
+        _mainMenuAnimator.SetBool("MenuIn", false);
+        _cardParentUI.gameObject.SetActive(false);
+   
+
     }
 
     void ShuffleList(List<int> list)
@@ -252,7 +299,7 @@ public class ControladorCarta : MonoBehaviour
         _flipAudio.Play();
         _loteriaIconAnimator.SetBool("MainIn", false);
         _cardParentUI.gameObject.SetActive(true);
-
+        _shine.Play("ShineIn");
         if(_allCards[numbers[0] - 1]._soundEffect != null)
         {
             _audioS.clip = _allCards[numbers[0] - 1]._soundEffect;
@@ -359,8 +406,8 @@ public class ControladorCarta : MonoBehaviour
 
     public void LeftCardsCreation()
     {
-      
 
+      
         for(int i = 0; i < numbers.Count; i++)
         {
             GameObject UIprefab1 = Instantiate(_cardUIpanel, new Vector2(0, 0), Quaternion.Euler(0, 0, 0));
