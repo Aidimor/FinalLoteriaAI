@@ -106,12 +106,17 @@ public class ImageInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
     public void ShortClickAction()
     {
-    
+        if (!_controlador._gameStarts)
+        {
+            _controlador.DeckCreation();
+        }
+
         if (!_controlador._changingCard)
         {
             _controlador.DectivateAutomatic();
+
             StartCoroutine(_controlador.NewCardNumerator());
-          //  GetComponent<VibrationController>().SmallVibration();
+            //  GetComponent<VibrationController>().SmallVibration();
         }
     }
 }

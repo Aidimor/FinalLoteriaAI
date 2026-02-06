@@ -113,6 +113,8 @@ public class ControladorCarta : MonoBehaviour
 
     public GameObject _cardsLeftParent;
 
+    public Animator _loteriaIconAnimator;
+    public Animator _mainMenuAnimator;
 
     public bool _gameStarts;
 
@@ -125,17 +127,34 @@ public class ControladorCarta : MonoBehaviour
         instanceMaterial = meshRenderer.materials[3]; // Adjust index as needed
 
 
-        numbers = GenerateList(maxNumber);
+
+
+        // Retrieve the Lens Distortion effect from the volume
+        if (volume.profile.TryGetSettings(out lensDistortion))
+        {
+            // Optional: Set an initial intensity value
+            lensDistortion.intensity.value = 30;
+        }
         NewTransformCreation();
+        StartCoroutine(StartNumerator());
+      
+    }
+
+    public IEnumerator StartNumerator()
+    {
+        yield return new WaitForSeconds(1);
+        _loteriaIconAnimator.SetBool("MainIn", true);
+    }
+
+    public void DeckCreation()
+    {
+        MainCard.gameObject.SetActive(true);
+        numbers = GenerateList(maxNumber);
+
 
         // Shuffle the list
         ShuffleList(numbers);
-     //   BotonCreation();
-        // Output the shuffled list
-        //foreach (int number in numbers)
-        //{
-        //    Debug.Log(number);
-        //}
+
 
         List<int> GenerateList(int max)
         {
@@ -146,14 +165,6 @@ public class ControladorCarta : MonoBehaviour
             }
             return list;
         }
-
-        // Retrieve the Lens Distortion effect from the volume
-        if (volume.profile.TryGetSettings(out lensDistortion))
-        {
-            // Optional: Set an initial intensity value
-            lensDistortion.intensity.value = 30;
-        }
-      
     }
 
 
@@ -212,6 +223,9 @@ public class ControladorCarta : MonoBehaviour
             _loteriaLastCardName.text = _allCards[OnCard - 1]._name;
             _loteriaParent.SetActive(true);
             MainCard.gameObject.SetActive(false);
+            _topMenuAnimator.SetBool("TopIn", false);
+            _mainMenuAnimator.SetBool("MenuIn", false);
+            _cardParentUI.gameObject.SetActive(false);
             LeftCardsCreation();
             _gameStarts = false;
         }
@@ -236,6 +250,9 @@ public class ControladorCarta : MonoBehaviour
         _changingCard = true;
         _automaticTimer = _maxTimer;
         _flipAudio.Play();
+        _loteriaIconAnimator.SetBool("MainIn", false);
+        _cardParentUI.gameObject.SetActive(true);
+
         if(_allCards[numbers[0] - 1]._soundEffect != null)
         {
             _audioS.clip = _allCards[numbers[0] - 1]._soundEffect;
@@ -296,7 +313,7 @@ public class ControladorCarta : MonoBehaviour
                 _changingCard = false;
                 break;
         }
-
+        _mainMenuAnimator.SetBool("MenuIn", true);
 
     }
 
@@ -461,6 +478,37 @@ public class ControladorCarta : MonoBehaviour
             _maxTimer++;
         }
    
+    }
+
+    public void RestartButton()
+    {
+        numbers.Clear();
+        _cardOnGoing = 0;
+        _cardsLeftParent.gameObject.SetActive(false);
+        _loteriaParent.gameObject.SetActive(false);
+        for(int i = 0; i < _cardUIobject.Count; i++)
+        {
+            Destroy(_cardUIobject[i]);
+        }
+        _cardUIobject.Clear();
+        for(int i = 0; i < _cardLeftUIobject.Count; i++)
+        {
+            Destroy(_cardLeftUIobject[i]);
+        }
+        _cardLeftUIobject.Clear();
+    
+        _cardUiPos = 0;
+        _cardLeftUiPos = 0;
+        for(int i = 0; i < _objectsScript.Length; i++)
+        {
+            _objectsScript[i].GetComponent<ClickDragScroller>()._xInitial = 0;
+            _objectsScript[i].GetComponent<ClickDragScroller>()._xLimit = 0;
+            _objectsScript[i].GetComponent<ClickDragScroller>().newX = 0;
+            _objectsScript[i].GetComponent<ClickDragScroller>().lastMousePosition = new Vector2(0, 0);
+        }
+        _camaraSize = 60;
+        CameraAnimator.SetBool("Enter", false);
+        _loteriaIconAnimator.SetBool("MainIn", true);
     }
 
 
