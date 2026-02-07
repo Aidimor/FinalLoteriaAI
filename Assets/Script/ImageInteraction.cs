@@ -70,7 +70,7 @@ public class ImageInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     
         isHolding = false;
 
-        if (Time.time - clickStartTime <= 0.1f)
+        if (Time.time - clickStartTime <= 0.4f)
         {
             ShortClickAction();
         }

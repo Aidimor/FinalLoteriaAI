@@ -9556,6 +9556,134 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &623472926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 623472928}
+  - component: {fileID: 623472927}
+  m_Layer: 0
+  m_Name: CardNameSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &623472927
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623472926}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dd11754b1f5730b438d37fa25505e2d9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 0.9
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 200
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &623472928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623472926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 5.1000004, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629685994
 GameObject:
   m_ObjectHideFlags: 0
@@ -9951,7 +10079,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 22e6354249e206c41888de7eac4bc7cc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 0.9
   Loop: 0
@@ -12604,13 +12732,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
-  m_Pitch: 0.9
+  m_Volume: 1
+  m_Pitch: 1.1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 200
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -12763,436 +12891,436 @@ MonoBehaviour:
     _color4: {r: 0.78431374, g: 0, b: 0.09803922, a: 1}
     _cardSprite: {fileID: 21300000, guid: 680c97b108a55db4cb760fdd6c842d1d, type: 3}
     _name: El Gallo
-    _description: Pollo choto
-    _soundEffect: {fileID: 8300000, guid: 989e91108a2e5504e8ec527b8c93c265, type: 3}
+    _description: El que canta temprano...
+    _soundEffect: {fileID: 8300000, guid: 443dab7d3ba5a56489163d876f8f30ce, type: 3}
   - _color: {r: 0.4339623, g: 0, b: 0, a: 1}
     _color2: {r: 1, g: 0, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.6150943, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: fdaf3945527ab864c8e8b20c3c72e58c, type: 3}
     _name: El Diablo
-    _description: El diablillo
-    _soundEffect: {fileID: 8300000, guid: d26a8fd14783c8f40a5bbaf07de80954, type: 3}
+    _description: El que ofrece atajos termina siendo...
+    _soundEffect: {fileID: 8300000, guid: fe7268eeaebdccf46b7b890db73f4d71, type: 3}
   - _color: {r: 1, g: 0.58679235, b: 0.9998061, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 0.96293914, g: 0.7150943, b: 1, a: 1}
     _color4: {r: 0.99950016, g: 0.8660377, b: 1, a: 1}
     _cardSprite: {fileID: 21300000, guid: c535b96e5793c1b45a725f09dc569fc9, type: 3}
     _name: La Dama
-    _description: El diablillo
-    _soundEffect: {fileID: 8300000, guid: f45c707cbe12c9b4ba2383a38d1a6767, type: 3}
+    _description: La que camina con fama...
+    _soundEffect: {fileID: 8300000, guid: 066ba790e6a454841b3a487f26c00d4f, type: 3}
   - _color: {r: 0.3132075, g: 0.3132075, b: 0.3132075, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 0.23773581, g: 0.23773581, b: 0.23773581, a: 1}
     _color4: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
     _cardSprite: {fileID: 21300000, guid: 39c293b61af49cb43b52ea81b69c412e, type: 3}
     _name: El Catrin
-    _description: El diablillo
-    _soundEffect: {fileID: 8300000, guid: 30f8f13d264ca5a48a147abebfab0269, type: 3}
+    _description: El que presume ser muy fino...
+    _soundEffect: {fileID: 8300000, guid: 95251a01f38c91a46970e33870aca1d4, type: 3}
   - _color: {r: 0.2936736, g: 0, b: 0.509434, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 0.32226408, g: 0, b: 0.4490565, a: 1}
     _color4: {r: 0.39215687, g: 0, b: 0.50980395, a: 1}
     _cardSprite: {fileID: 21300000, guid: ba5f08e70cad3c64fa83bec86d5f227e, type: 3}
     _name: El Paraguas
-    _description: El diablillo
-    _soundEffect: {fileID: 8300000, guid: 49252a1df65aef34fa6061a311df9493, type: 3}
+    _description: El que te cubre del agua...
+    _soundEffect: {fileID: 8300000, guid: f6e2343e1797b9d4299a6feb2dd7043c, type: 3}
   - _color: {r: 0.3886792, g: 0, b: 0, a: 1}
     _color2: {r: 0.40872195, g: 0.7541588, b: 0.8113208, a: 1}
     _color3: {r: 0.827451, g: 0.051056176, b: 0, a: 1}
     _color4: {r: 0.7058824, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 0f02125a8ca30d749a32be4ac3bddb45, type: 3}
     _name: La Sirena
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: La que canta en la arena...
+    _soundEffect: {fileID: 8300000, guid: 9db8a061f7f6d374b86d7405b04cd49f, type: 3}
   - _color: {r: 0.3150943, g: 0.9674664, b: 1, a: 1}
     _color2: {r: 0.8660377, g: 1, b: 1, a: 1}
     _color3: {r: 0.39697394, g: 0.7132075, b: 0.69081235, a: 1}
     _color4: {r: 0, g: 0.627451, b: 0.627451, a: 1}
     _cardSprite: {fileID: 21300000, guid: 142e82bb4dd2167428854ef1ea8fa2a3, type: 3}
     _name: La Escalera
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: La que subes donde quieras...
+    _soundEffect: {fileID: 8300000, guid: 7fa1eaef910646348852d96e565be9cb, type: 3}
   - _color: {r: 1, g: 0, b: 0, a: 1}
     _color2: {r: 1, g: 0.8962264, b: 0.8962264, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 1, g: 1, b: 1, a: 1}
     _cardSprite: {fileID: 21300000, guid: 74e813e9d527a0e4da3b1435e979dd82, type: 3}
     _name: La Botella
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: La que invita a otra vuelta...
+    _soundEffect: {fileID: 8300000, guid: 533b11a1af4404444820447f33d99c16, type: 3}
   - _color: {r: 0.062462293, g: 0.4716981, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: c3cfa9744132b95439426229305a06ec, type: 3}
     _name: El Barril
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: El que guarda buen perfil...
+    _soundEffect: {fileID: 8300000, guid: eee2624477b7fea4eb91b137c721bb50, type: 3}
   - _color: {r: 0.12295399, g: 0.4264151, b: 0, a: 1}
     _color2: {r: 0.7577156, g: 1, b: 0.61698115, a: 1}
     _color3: {r: 0.121790506, g: 0.86415094, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 1, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 8cadb164f2a45984d985ce6ceda4be49, type: 3}
     _name: El Arbol
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: El que aguanta lluvia y sol...
+    _soundEffect: {fileID: 8300000, guid: 4bf2dcee6da749f4a8ca6cd21282ef60, type: 3}
   - _color: {r: 0.19607843, g: 0.39215687, b: 0, a: 1}
     _color2: {r: 1, g: 0.78431374, b: 0.47058824, a: 1}
     _color3: {r: 1, g: 0.78431374, b: 0.47058824, a: 1}
     _color4: {r: 1, g: 0.78431374, b: 0.23529412, a: 1}
     _cardSprite: {fileID: 21300000, guid: 6cc4a0b57b8d23d4e9c53afb7e4ffe4e, type: 3}
     _name: El Melon
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: "El que se parte en mont\xF3n\u2026"
+    _soundEffect: {fileID: 8300000, guid: eadf367b98ca79a498ce8576b975ccd1, type: 3}
   - _color: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 1, g: 0.09272029, b: 0, a: 1}
     _color4: {r: 0, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 6d0a2a09bc1824247b47c9444ed42dc7, type: 3}
     _name: El Valiente
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: El que no le teme a nadie...
+    _soundEffect: {fileID: 8300000, guid: 6642f755177704744b662ebad1e85f1c, type: 3}
   - _color: {r: 0, g: 0, b: 0.39215687, a: 1}
     _color2: {r: 1, g: 0, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0, g: 0, b: 0.5882353, a: 1}
     _cardSprite: {fileID: 21300000, guid: 84e8268ebfe14a341ade594672edeeab, type: 3}
     _name: El Gorrito
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: "El que tapa el pelito\u2026"
+    _soundEffect: {fileID: 8300000, guid: 46feb807f288d804ba2550172f213424, type: 3}
   - _color: {r: 0.13725491, g: 0.13725491, b: 0.13725491, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 0.13725491, g: 0.13725491, b: 0.13725491, a: 1}
     _color4: {r: 1, g: 1, b: 1, a: 1}
     _cardSprite: {fileID: 21300000, guid: f4daa768ac00808478eef4d2871d72e0, type: 3}
     _name: La Muerte
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: "La que llega de repente\u2026"
+    _soundEffect: {fileID: 8300000, guid: 42ff46efa0e11d44a9828a5934fc30cb, type: 3}
   - _color: {r: 0.34705108, g: 0.3584906, b: 0, a: 1}
     _color2: {r: 0.47058824, g: 1, b: 0.19607843, a: 1}
     _color3: {r: 0.121790506, g: 0.86415094, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 1, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 06fb0b873bd998b4cb32c451d9d13a53, type: 3}
     _name: La Pera
-    _description: El diablillo
-    _soundEffect: {fileID: 0}
+    _description: "La que cuida la huerta\u2026"
+    _soundEffect: {fileID: 8300000, guid: 20a37f65b65f0e54a90d54f5cfece598, type: 3}
   - _color: {r: 0.17735851, g: 0.17735851, b: 0.17735851, a: 1}
     _color2: {r: 1, g: 1, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0.0058050156, a: 1}
     _color4: {r: 1, g: 1, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 962bae3bcf16c2b4cb4e94d1142e37b0, type: 3}
     _name: La Bandera
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que ondea donde quiera\u2026"
+    _soundEffect: {fileID: 8300000, guid: 1e35fa3e6c4b62b4cb543807559b8e58, type: 3}
   - _color: {r: 0.39215687, g: 0.39215687, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 1, g: 1, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 76d10b1579dfc014eab53f20c7a35b07, type: 3}
     _name: El Bandolon
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que suena con emoci\xF3n\u2026"
+    _soundEffect: {fileID: 8300000, guid: f0b6c3e02c3f55d48b3ec711957bacbd, type: 3}
   - _color: {r: 0.5169811, g: 0.5169811, b: 0.5169811, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.8490566, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 0fbbbae6f2021094c81672381c838a0e, type: 3}
     _name: El Violoncello
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que llora bien bello\u2026"
+    _soundEffect: {fileID: 8300000, guid: 46727b114e443c94194a09bed79650c7, type: 3}
   - _color: {r: 0, g: 0.39215687, b: 0.39215687, a: 1}
     _color2: {r: 0.78431374, g: 1, b: 1, a: 1}
     _color3: {r: 0, g: 0.5882353, b: 0.39215687, a: 1}
     _color4: {r: 0, g: 1, b: 0.7058824, a: 1}
     _cardSprite: {fileID: 21300000, guid: c275a8b72c87bb94baeea2fb0eebad39, type: 3}
     _name: La Garza
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que pesca en la laguna clara\u2026"
+    _soundEffect: {fileID: 8300000, guid: ffd91e75e640ca54fb21c88e52ded107, type: 3}
   - _color: {r: 0.3735848, g: 0, b: 0.04053253, a: 1}
     _color2: {r: 1, g: 1, b: 0.78431374, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 1, g: 1, b: 0.39215687, a: 1}
     _cardSprite: {fileID: 21300000, guid: 2ace58b91274ab84ca0064e19c91aeb4, type: 3}
     _name: El Pajaro
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que vuela sin encargo\u2026"
+    _soundEffect: {fileID: 8300000, guid: 167dad510b4884841898d33e3a59cd27, type: 3}
   - _color: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 0, g: 0, b: 0, a: 1}
     _color4: {r: 1, g: 1, b: 1, a: 1}
     _cardSprite: {fileID: 21300000, guid: 30bc2d008e94c1845b7cd044a6baa499, type: 3}
     _name: La Mano
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que a todos agarra\u2026"
+    _soundEffect: {fileID: 8300000, guid: e81b5d4e0d5b3ad40b20ea4445d49cf4, type: 3}
   - _color: {r: 0, g: 0.11764706, b: 0.39215687, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
     _color4: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
     _cardSprite: {fileID: 21300000, guid: 9318db1d5d0567a449b1ed9c86f4f5a2, type: 3}
     _name: La Bota
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que pisa la tierra mojada\u2026"
+    _soundEffect: {fileID: 8300000, guid: 849d135f93cc2f743a25aa1bb4dcb3f6, type: 3}
   - _color: {r: 0.19607843, g: 0, b: 0.39215687, a: 1}
     _color2: {r: 0.78431374, g: 0.7058824, b: 1, a: 1}
     _color3: {r: 0.78431374, g: 0.7058824, b: 1, a: 1}
     _color4: {r: 0.78431374, g: 0.78431374, b: 1, a: 1}
     _cardSprite: {fileID: 21300000, guid: fc88fbcf03bed8049a2ac942955b5db2, type: 3}
     _name: La Luna
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que brilla en la laguna\u2026"
+    _soundEffect: {fileID: 8300000, guid: 5a5b1dbb673df5d44b73cedc2efcf906, type: 3}
   - _color: {r: 0, g: 0.3137255, b: 0, a: 1}
     _color2: {r: 0.5882353, g: 1, b: 0.5882353, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 1, g: 0.25490198, b: 0.19607843, a: 1}
     _cardSprite: {fileID: 21300000, guid: aae5663e47d8b4746b5b1e2c9301a601, type: 3}
     _name: El Cotorro
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que habla mejor que el loro\u2026"
+    _soundEffect: {fileID: 8300000, guid: 2f5f0de044d395a468d37243510311c5, type: 3}
   - _color: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
     _color2: {r: 1, g: 1, b: 0.3830188, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 1, g: 1, b: 0.39215687, a: 1}
     _cardSprite: {fileID: 21300000, guid: ac8ad9d09873bae4485f68363a0ebda4, type: 3}
     _name: El Borracho
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que bebe sin despacho\u2026"
+    _soundEffect: {fileID: 8300000, guid: bd98cc106e80b5046b169f300db097af, type: 3}
   - _color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: a48dff20cd9f1f54da957f5352337866, type: 3}
     _name: El Negrito
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: Que bien baila el morenito...
+    _soundEffect: {fileID: 8300000, guid: 740d7f6c17f4eb04eaddca971a098a2c, type: 3}
   - _color: {r: 1, g: 0, b: 0, a: 1}
     _color2: {r: 0.4509804, g: 1, b: 0.4509804, a: 1}
     _color3: {r: 0, g: 0.60784316, b: 0.17254902, a: 1}
     _color4: {r: 0, g: 0.7058824, b: 0.17254902, a: 1}
     _cardSprite: {fileID: 21300000, guid: f0db139c394d7c14bb03dcc9979bca52, type: 3}
     _name: El Corazon
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que late con pasi\xF3n\u2026"
+    _soundEffect: {fileID: 8300000, guid: bbc1d40f225a32948b59c9468d074546, type: 3}
   - _color: {r: 0, g: 0.27450982, b: 0, a: 1}
     _color2: {r: 1, g: 0.19607843, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 7d852b51bcae54846ac4729bd79fd74a, type: 3}
     _name: La Sandia
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que refresca con alegr\xEDa\u2026"
+    _soundEffect: {fileID: 8300000, guid: a21e1788a0a729040ad38c8d983bcead, type: 3}
   - _color: {r: 0.3735848, g: 0, b: 0.04053253, a: 1}
     _color2: {r: 1, g: 1, b: 0.78431374, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 3f5f45096782435439b85e9863d4dc43, type: 3}
     _name: El Tambor
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que retumba con gran honor\u2026"
+    _soundEffect: {fileID: 8300000, guid: f8cc5317d31c6c847bad0354e72bc3c0, type: 3}
   - _color: {r: 0.78431374, g: 0, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 0.78431374, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 4c25ff84b0dd0e8449137d677e962d59, type: 3}
     _name: El Camaron
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: El que se durmio...
+    _soundEffect: {fileID: 8300000, guid: 681cce600b60fe7449d49b5934fd0bae, type: 3}
   - _color: {r: 0, g: 0.39215687, b: 0.5882353, a: 1}
     _color2: {r: 0.94544315, g: 1, b: 0, a: 1}
     _color3: {r: 0, g: 0.6666667, b: 1, a: 1}
     _color4: {r: 0, g: 0.5882353, b: 1, a: 1}
     _cardSprite: {fileID: 21300000, guid: 96cd5c41a5e09e741b75090436623ad3, type: 3}
     _name: Las Jaras
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "Las que golpean en las guardias\u2026"
+    _soundEffect: {fileID: 8300000, guid: 8a17dca6a29b6ee47b58064d0eaa7216, type: 3}
   - _color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
     _color2: {r: 0.47058824, g: 0, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 057b8feb0cf3404498c8b58621cf9e37, type: 3}
     _name: El Musico
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que toca mel\xF3dico\u2026"
+    _soundEffect: {fileID: 8300000, guid: 81322894f03cd60458b8fc749769b4e2, type: 3}
   - _color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
     _color2: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
     _color3: {r: 0.39215687, g: 0, b: 0, a: 1}
     _color4: {r: 0.5882353, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: e32b0b7f17b40704794e5ecfa0f3b4bc, type: 3}
     _name: "La Ara\xF1a"
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que teje su telara\xF1a..."
+    _soundEffect: {fileID: 8300000, guid: 56a041c78362f9948a516b05e70c5792, type: 3}
   - _color: {r: 0, g: 0.15686275, b: 0, a: 1}
     _color2: {r: 0, g: 0.39215687, b: 0, a: 1}
     _color3: {r: 0, g: 0.19607843, b: 0, a: 1}
     _color4: {r: 0, g: 0.27450982, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 56f380c799eacae408111b30a5b96237, type: 3}
     _name: El Soldado
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que siempre va armado\u2026"
+    _soundEffect: {fileID: 8300000, guid: ceaabfc830c863f44b684659c60c5577, type: 3}
   - _color: {r: 0, g: 0.19607843, b: 0.19607843, a: 1}
     _color2: {r: 0.39215687, g: 0.39215687, b: 0.78431374, a: 1}
     _color3: {r: 0.19607843, g: 0.39215687, b: 1, a: 1}
     _color4: {r: 0.39215687, g: 0.39215687, b: 0.7058824, a: 1}
     _cardSprite: {fileID: 21300000, guid: 03fc37a0256e2624eaa4c24903cc1768, type: 3}
     _name: La Estrella
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que brilla como doncella\u2026"
+    _soundEffect: {fileID: 8300000, guid: 3cdf4a74914d86d428fe6bd657e4d943, type: 3}
   - _color: {r: 0.39215687, g: 0, b: 0, a: 1}
     _color2: {r: 1, g: 0.39215687, b: 0, a: 1}
     _color3: {r: 1, g: 0.19607843, b: 0, a: 1}
     _color4: {r: 1, g: 0.39215687, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: ade0565ea93c2e74aa5f91487ab613e2, type: 3}
     _name: El Cazo
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que calienta a todo trazo\u2026"
+    _soundEffect: {fileID: 8300000, guid: a41ec7d5b9542de458650093b812f696, type: 3}
   - _color: {r: 0.29411766, g: 0, b: 0, a: 1}
     _color2: {r: 0.78431374, g: 0.39215687, b: 0, a: 1}
     _color3: {r: 0.78431374, g: 0.39215687, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0.50980395, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 7be57b05b5b943046944fd109bf2fd31, type: 3}
     _name: El Mundo
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que abraza mares y cielo profundo\u2026"
+    _soundEffect: {fileID: 8300000, guid: 0e7a419234610d14daaf9b2f7f6bfcee, type: 3}
   - _color: {r: 0.27450982, g: 0, b: 0, a: 1}
     _color2: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
     _color3: {r: 0.39215687, g: 0, b: 0, a: 1}
     _color4: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
     _cardSprite: {fileID: 21300000, guid: 94acd543c0f66f546abb6be2dbada39d, type: 3}
     _name: El Apache
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que lucha con gran coraje\u2026"
+    _soundEffect: {fileID: 8300000, guid: f9964797184813c468e0973433c2f3cf, type: 3}
   - _color: {r: 0, g: 0.29411766, b: 0, a: 1}
     _color2: {r: 1, g: 0, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 9bb4f2e0969612f4480d4e8e6483cbd2, type: 3}
     _name: El Nopal
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que se defiende con espinal\u2026"
+    _soundEffect: {fileID: 8300000, guid: a797be2cdaf984441835f7f9bf5cf125, type: 3}
   - _color: {r: 0.39215687, g: 0, b: 0, a: 1}
     _color2: {r: 0.39215687, g: 0, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 84ceb0f8ff65d9d4f9dfae7d298c460f, type: 3}
     _name: El Alacran
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: El que pica sin avisar...
+    _soundEffect: {fileID: 8300000, guid: 000bb00b5b9528648bf37110fc278848, type: 3}
   - _color: {r: 1, g: 0, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 0, a: 1}
     _color3: {r: 1, g: 0.19607843, b: 0, a: 1}
     _color4: {r: 1, g: 0.39215687, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: bf26b51abc442f543a5ea5c67d519b2c, type: 3}
     _name: La Rosa
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que florece hermosa\u2026"
+    _soundEffect: {fileID: 8300000, guid: 790932e9b7b72a34b8d5ffc05e6e4922, type: 3}
   - _color: {r: 0.39215687, g: 0, b: 0.5882353, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 0.39215687, g: 0, b: 0.5882353, a: 1}
     _color4: {r: 0.4452829, g: 0, b: 0.6679245, a: 1}
     _cardSprite: {fileID: 21300000, guid: 8390a2c32b8995b42950fcd48a3d9282, type: 3}
     _name: La Calavera
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que recuerda la vida pasajera\u2026"
+    _soundEffect: {fileID: 8300000, guid: 69538f2ae7f6fb24f936b8cee5de3886, type: 3}
   - _color: {r: 0, g: 0.39215687, b: 0.39215687, a: 1}
     _color2: {r: 1, g: 1, b: 0, a: 1}
     _color3: {r: 1, g: 1, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0.78431374, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 765e6624872d79145b03944ecdd2da88, type: 3}
     _name: La Campana
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que suena temprano en la ma\xF1ana\u2026"
+    _soundEffect: {fileID: 8300000, guid: dcb1660d107b6194896dd7805c7ca57c, type: 3}
   - _color: {r: 0.5882353, g: 0, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 0.5882353, a: 1}
     _color3: {r: 0.5882353, g: 0, b: 0, a: 1}
     _color4: {r: 0.7058824, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 8f211d491ecc9354a9cd67f1428692d2, type: 3}
     _name: El Cantarito
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que carga l\xEDquido escondido\u2026"
+    _soundEffect: {fileID: 8300000, guid: 11f9e1c0b48c8c143baede659dd70816, type: 3}
   - _color: {r: 0.7058824, g: 0.39215687, b: 0, a: 1}
     _color2: {r: 0.7058824, g: 0.39215687, b: 0, a: 1}
     _color3: {r: 1, g: 0.50980395, b: 0, a: 1}
     _color4: {r: 1, g: 0.7058824, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 24ac8fdbf577ec245808ff0a975acb31, type: 3}
     _name: El Venado
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que salta alto y sin cuidado\u2026"
+    _soundEffect: {fileID: 8300000, guid: e0e3b541c896c7743945fb94a0e4bef4, type: 3}
   - _color: {r: 0.19607843, g: 0.19607843, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 0.39215687, a: 1}
     _color3: {r: 1, g: 0.78431374, b: 0, a: 1}
     _color4: {r: 1, g: 1, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 10458698e2566dc4d8c0aeed08fbda3f, type: 3}
     _name: El Sol
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que calienta sin control\u2026"
+    _soundEffect: {fileID: 8300000, guid: 3c016c46ad003fa4a8322c5fe4cc6467, type: 3}
   - _color: {r: 0.39215687, g: 0, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 36f3099c28c5f7e409d5b53fa7b9e3ff, type: 3}
     _name: La Corona
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que adorna la cabeza poderosa\u2026"
+    _soundEffect: {fileID: 8300000, guid: 1a0550c1d0d644949865fdf410260669, type: 3}
   - _color: {r: 0.29411766, g: 0.29411766, b: 0.29411766, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 0, g: 0.7058824, b: 0, a: 1}
     _color4: {r: 0, g: 0.78431374, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 7dc0db9f10d0bb549801e28c3d2f4382, type: 3}
     _name: La Chalupa
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que navega por la laguna\u2026"
+    _soundEffect: {fileID: 8300000, guid: 573fc57700fc4a4448deca8d9938d6ed, type: 3}
   - _color: {r: 0.19607843, g: 0.39215687, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 0.5882353, a: 1}
     _color3: {r: 0.39215687, g: 0.7058824, b: 0, a: 1}
     _color4: {r: 0.39215687, g: 0.5882353, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 9e846ea8f465b0f49ae5df0041f2c888, type: 3}
     _name: El Pino
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que resiste fr\xEDo y destino\u2026"
+    _soundEffect: {fileID: 8300000, guid: 0d4374acf5d3f6844aa82801b56e96fd, type: 3}
   - _color: {r: 0, g: 1, b: 1, a: 1}
     _color2: {r: 1, g: 1, b: 1, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: f2b48acc524e4294dbc0606cc636067b, type: 3}
     _name: El Pez
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que nada r\xE1pido y apurado\u2026"
+    _soundEffect: {fileID: 8300000, guid: f8085f052f8efea49b6dcbd33051f2f1, type: 3}
   - _color: {r: 0, g: 0.5882353, b: 0.5882353, a: 1}
     _color2: {r: 1, g: 1, b: 0.5882353, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: bab8d3fe451186945abfd1461e914dcc, type: 3}
     _name: La Palma
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que brinda sombra y calma\u2026"
+    _soundEffect: {fileID: 8300000, guid: 46e5185ada5aec94889466a0562768a4, type: 3}
   - _color: {r: 0.39215687, g: 0, b: 0, a: 1}
     _color2: {r: 1, g: 1, b: 0.5882353, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 9cf2a053ff1080547aa3f751d348e029, type: 3}
     _name: La Maceta
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que protege la violeteta\u2026"
+    _soundEffect: {fileID: 8300000, guid: 9741dab2b2126d74a953f2e68fe4d0db, type: 3}
   - _color: {r: 0, g: 0.19607843, b: 0.39215687, a: 1}
     _color2: {r: 1, g: 1, b: 0, a: 1}
     _color3: {r: 1, g: 0, b: 0, a: 1}
     _color4: {r: 0.78431374, g: 0, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: 26d462aaf526d7847afc6da9abe77d0e, type: 3}
     _name: El Arpa
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "El que toca notas en el alma\u2026"
+    _soundEffect: {fileID: 8300000, guid: a18838436a3a51d4ea185d2ec13d3647, type: 3}
   - _color: {r: 0, g: 0.39215687, b: 0, a: 1}
     _color2: {r: 0.78431374, g: 0.78431374, b: 0.39215687, a: 1}
     _color3: {r: 0, g: 0.78431374, b: 0, a: 1}
     _color4: {r: 0, g: 0.5882353, b: 0, a: 1}
     _cardSprite: {fileID: 21300000, guid: dd9dbdcffba0a164fb2d2c267cd9f890, type: 3}
     _name: La Rana
-    _description: ADASD
-    _soundEffect: {fileID: 0}
+    _description: "La que salta por la ventana\u2026"
+    _soundEffect: {fileID: 8300000, guid: 7de6620187f416849a0ec2f8fda3a867, type: 3}
   maxNumber: 54
   numbers: 
   _changingCard: 0
-  CardAnimator: {fileID: 616820412}
+  CardAnimator: {fileID: 0}
   CameraAnimator: {fileID: 383539667}
   CamaraParent: {fileID: 116863887}
   _mainCamara: {fileID: 963194227}
@@ -13251,6 +13379,10 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 1, a: 0.019607844}
   _shine: {fileID: 1805010691}
+  _loteriaAS: {fileID: 1617845980}
+  _chooseSounds:
+  - {fileID: 8300000, guid: bec24406e198c2744a5902e4a8f3900e, type: 3}
+  - {fileID: 8300000, guid: 1b73ef871c930d045b4c3f1863085aa9, type: 3}
   _gameStarts: 0
 --- !u!4 &999928354
 Transform:
@@ -16391,8 +16523,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dd11754b1f5730b438d37fa25505e2d9, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
   m_Pitch: 0.9
   Loop: 0
   Mute: 0
@@ -17406,6 +17538,134 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1617845979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1617845981}
+  - component: {fileID: 1617845980}
+  m_Layer: 0
+  m_Name: LoteriaSoundEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1617845980
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617845979}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 93807c8e81025124c855a1b07ba5a543, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.8
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1617845981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617845979}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 5.1000004, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1619367055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1255605710908113952, guid: d49e8e84f64187e4eb97d22abb68cd7c, type: 3}
@@ -19110,6 +19370,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1945105849}
   - component: {fileID: 1945105850}
+  - component: {fileID: 1945105852}
+  - component: {fileID: 1945105851}
   m_Layer: 5
   m_Name: LoteriaIconParent
   m_TagString: Untagged
@@ -19160,6 +19422,115 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1945105851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945105848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ec7827e16e6994a84181ffaa007a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSoruce: {fileID: 1945105852}
+--- !u!82 &1945105852
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945105848}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cf4a60ba30b2baf4895fdfd607275525, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 0.7
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 256
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1966539647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19293,7 +19664,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975598723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
@@ -20370,4 +20741,6 @@ SceneRoots:
   - {fileID: 980226596}
   - {fileID: 650818982}
   - {fileID: 1502555752}
+  - {fileID: 1617845981}
+  - {fileID: 623472928}
   - {fileID: 999928354}

@@ -119,6 +119,10 @@ public class ControladorCarta : MonoBehaviour
     public Image _autoBackground;
     public Color[] _autoBackgroundColor;
     public Animator _shine;
+    public AudioSource _loteriaAS;
+
+    public AudioClip[] _chooseSounds;
+
     public bool _gameStarts;
 
     // Start is called before the first frame update
@@ -127,7 +131,7 @@ public class ControladorCarta : MonoBehaviour
      
 
         meshRenderer = Outline.GetComponent<MeshRenderer>();
-        instanceMaterial = meshRenderer.materials[3]; // Adjust index as needed
+        //instanceMaterial = meshRenderer.materials[3]; // Adjust index as needed
 
 
 
@@ -175,7 +179,7 @@ public class ControladorCarta : MonoBehaviour
     void Update()
     {
 
-        lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, 30, 2 * Time.deltaTime);
+        //lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, 30, 2 * Time.deltaTime);
         _mainCamara.fieldOfView = Mathf.Lerp(_mainCamara.fieldOfView, _camaraSize, 4 * Time.deltaTime);
 
         if (OnCard > 0)
@@ -185,7 +189,7 @@ public class ControladorCarta : MonoBehaviour
             _cardImages.sprite = _allCards[OnCard - 1]._cardSprite;
             _number.text = OnCard.ToString();
             InsideBack.GetComponent<MeshRenderer>().materials[0].color = _allCards[OnCard - 1]._color;
-            instanceMaterial.SetColor("_OutlineColor", _allCards[OnCard - 1]._color2);
+            //instanceMaterial.SetColor("_OutlineColor", _allCards[OnCard - 1]._color2);
             NumberBackImage.color = _allCards[OnCard - 1]._color3;
             NameBackImage.color = _allCards[OnCard - 1]._color3;
             BackBackImage.color = _allCards[OnCard - 1]._color4;
@@ -237,6 +241,8 @@ public class ControladorCarta : MonoBehaviour
                 _mainMenuAnimator.SetBool("MenuIn", false);
                 _cardParentUI.gameObject.SetActive(false);
                 LeftCardsCreation();
+                _loteriaAS.Play();
+                _imageBlocker.gameObject.SetActive(false);
                 _gameStarts = false;
 
             }
@@ -339,6 +345,7 @@ public class ControladorCarta : MonoBehaviour
                 yield return new WaitForSeconds(3.3f);
                 _boomAudio.Play();
                 yield return new WaitForSeconds(0.5f);
+                _audioS.Play();
                 lensDistortion.intensity.value = 20;
                 NewBotonCreation();
                 numbers.RemoveAt(0);
@@ -349,11 +356,12 @@ public class ControladorCarta : MonoBehaviour
                 CamaraParent.GetComponent<Animator>().Play("CardNormal");
                 OnCard = numbers[0];
                 _cardOnGoing++;
-                CardAnimator.Play("TakeTop");
+                //CardAnimator.Play("TakeTop");
                 CameraAnimator.SetBool("Enter", true);
                 yield return new WaitForSeconds(1);
                 _boomAudio.Play();
                 yield return new WaitForSeconds(0.5f);
+                _audioS.Play();
                 lensDistortion.intensity.value = 20;
                 NewBotonCreation();
                 numbers.RemoveAt(0);
@@ -485,9 +493,13 @@ public class ControladorCarta : MonoBehaviour
         switch (_automaticOn)
         {
             case true:
+                _audioS.clip = _chooseSounds[0];
+                _audioS.Play();
                 _buttonImage.color = _buttonColor[0];
                 break;
             case false:
+                _audioS.clip = _chooseSounds[1];
+                _audioS.Play();
                 _buttonImage.color = _buttonColor[1];
                 _timerText.text = "II";
                 break;
@@ -498,6 +510,8 @@ public class ControladorCarta : MonoBehaviour
     {
         _automaticOn = false;
         _timerImage.gameObject.SetActive(_automaticOn);
+        _audioS.clip = _chooseSounds[1];
+        _audioS.Play();
         _timerImage.fillAmount = 1;
         _automaticTimer = _maxTimer;
         _timerText.text = "II";
@@ -531,7 +545,7 @@ public class ControladorCarta : MonoBehaviour
     {
         numbers.Clear();
         _cardOnGoing = 0;
-        _cardsLeftParent.gameObject.SetActive(false);
+        //_cardsLeftParent.gameObject.SetActive(false);
         _loteriaParent.gameObject.SetActive(false);
         for(int i = 0; i < _cardUIobject.Count; i++)
         {
