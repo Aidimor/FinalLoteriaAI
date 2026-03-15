@@ -116,7 +116,7 @@ public class ImageInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHa
             switch (_controlador._gameStarts)
             {
                 case false:
-                    StartCoroutine(_controlador.NewCardNumerator());
+                    //StartCoroutine(_controlador.NewCardNumerator());
                     break;
                 case true:
                     switch (_controlador._automaticOn)

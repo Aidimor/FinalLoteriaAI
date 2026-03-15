@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpecialAnimations : MonoBehaviour
 {
     public GameObject _controlador;
+    public PesoController _scriptPeso;
     // Start is called before the first frame update
 
     public void to30()
@@ -25,6 +26,21 @@ public class SpecialAnimations : MonoBehaviour
     public void BellSoundEffect()
     {
         _controlador.GetComponent<ControladorCarta>()._bellSound.Play();
+    }
+
+    public void ChargeSoundEffect()
+    {
+        _controlador.GetComponent<ControladorCarta>()._chargeSound.Play();
+    }
+
+    public void StopChargeSoundEffect()
+    {
+        _controlador.GetComponent<ControladorCarta>()._chargeSound.Stop();
+    }
+
+    public void PesoCoinParticleEffect()
+    {
+        _scriptPeso._chessAssets._coinParticle.Play();
     }
 
 }

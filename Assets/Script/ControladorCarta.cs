@@ -124,6 +124,7 @@ public class ControladorCarta : MonoBehaviour
 
     public AudioClip[] _chooseSounds;
     public AudioSource _bellSound;
+    public AudioSource _chargeSound;
     public bool _gameStarts;
 
     // Start is called before the first frame update
@@ -152,6 +153,8 @@ public class ControladorCarta : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         _loteriaIconAnimator.SetBool("MainIn", true);
+        yield return new WaitForSeconds(1);
+        GetComponent<PesoController>()._startAnimator.SetBool("Start", true);
     }
 
     public void DeckCreation()
