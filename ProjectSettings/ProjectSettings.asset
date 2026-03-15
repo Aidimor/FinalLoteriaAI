@@ -850,7 +850,13 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -870,11 +876,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: edc48b23-c20c-4dd1-a537-c754a84f8955
+  cloudProjectId: b8b494b1-717c-4ad7-acbf-6f61c7d1428b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: New 3D Loteria
-  organizationId: turboindie
+  organizationId: leoni-dethan
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

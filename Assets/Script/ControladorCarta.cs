@@ -53,7 +53,7 @@ public class ControladorCarta : MonoBehaviour
     public Animator CameraAnimator;
 
     public GameObject CamaraParent;
-    public Camera _mainCamara;
+    public Camera[] _mainCamara;
 
 
     public GameObject _cardUIpanel;
@@ -63,6 +63,7 @@ public class ControladorCarta : MonoBehaviour
     //public Animator _buttonCardAnimator;
     public TextMeshProUGUI _totalCardsText;
     public List<Transform> _cardUIpos = new List<Transform>();
+    public List<Transform> _cardUILeftpos = new List<Transform>();
     public List<GameObject> _cardUIobject = new List<GameObject>();
     public List<GameObject> _cardLeftUIobject = new List<GameObject>();
     public int _cardOnGoing;
@@ -122,7 +123,7 @@ public class ControladorCarta : MonoBehaviour
     public AudioSource _loteriaAS;
 
     public AudioClip[] _chooseSounds;
-
+    public AudioSource _bellSound;
     public bool _gameStarts;
 
     // Start is called before the first frame update
@@ -180,7 +181,8 @@ public class ControladorCarta : MonoBehaviour
     {
 
         //lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, 30, 2 * Time.deltaTime);
-        _mainCamara.fieldOfView = Mathf.Lerp(_mainCamara.fieldOfView, _camaraSize, 4 * Time.deltaTime);
+        _mainCamara[0].fieldOfView = Mathf.Lerp(_mainCamara[0].fieldOfView, _camaraSize, 4 * Time.deltaTime);
+        //_mainCamara[1].fieldOfView = Mathf.Lerp(_mainCamara[1].fieldOfView, _camaraSize, 4 * Time.deltaTime);
 
         if (OnCard > 0)
         {
@@ -203,9 +205,9 @@ public class ControladorCarta : MonoBehaviour
         _mandalas[0].transform.Rotate(Vector3.forward * _mandalasSpeed * Time.deltaTime);
         _mandalas[1].transform.Rotate(Vector3.forward * _mandalasSpeed * Time.deltaTime);
 
-
-        _cardParentUI.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(_cardParentUI.GetComponent<RectTransform>().anchoredPosition, new Vector2(_cardUiPos, _cardParentUI.GetComponent<RectTransform>().anchoredPosition.y), 5 * Time.deltaTime);
-        _cardParentUIleft.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(_cardParentUIleft.GetComponent<RectTransform>().anchoredPosition, new Vector2(_cardLeftUiPos, _cardParentUIleft.GetComponent<RectTransform>().anchoredPosition.y), 5 * Time.deltaTime);
+        //_cardParentUI.GetComponent<RectTransform>().anchoredPosition = new Vector2(_cardUiPos, _cardParentUI.GetComponent<RectTransform>().anchoredPosition.y));
+        //_cardParentUI.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(_cardParentUI.GetComponent<RectTransform>().anchoredPosition, new Vector2(_cardUiPos, _cardParentUI.GetComponent<RectTransform>().anchoredPosition.y), 5 * Time.deltaTime);
+        //_cardParentUIleft.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(_cardParentUIleft.GetComponent<RectTransform>().anchoredPosition, new Vector2(_cardLeftUiPos, _cardParentUIleft.GetComponent<RectTransform>().anchoredPosition.y), 5 * Time.deltaTime);
 
         if (_gameStarts)
         {
@@ -282,7 +284,7 @@ public class ControladorCarta : MonoBehaviour
         _topMenuAnimator.SetBool("TopIn", false);
         _mainMenuAnimator.SetBool("MenuIn", false);
         _cardParentUI.gameObject.SetActive(false);
-   
+        DectivateAutomatic();
 
     }
 
@@ -306,11 +308,11 @@ public class ControladorCarta : MonoBehaviour
         _loteriaIconAnimator.SetBool("MainIn", false);
         _cardParentUI.gameObject.SetActive(true);
         _shine.Play("ShineIn");
-        if(_allCards[numbers[0] - 1]._soundEffect != null)
+        if (_allCards[numbers[0] - 1]._soundEffect != null)
         {
             _audioS.clip = _allCards[numbers[0] - 1]._soundEffect;
         }
-       
+
         switch (_cardOnGoing)
         {
             case 26:
@@ -334,12 +336,13 @@ public class ControladorCarta : MonoBehaviour
             default:
                 break;
         }
-        switch(_cardOnGoing >= 44)
+        switch (_cardOnGoing >= 44)
         {
             case true:
                 CamaraParent.GetComponent<Animator>().Play("CardFinal");
                 OnCard = numbers[0];
                 _cardOnGoing++;
+                _cardParentUI.GetComponent<RectTransform>().anchoredPosition = new Vector2(_cardUiPos, _cardParentUI.GetComponent<RectTransform>().anchoredPosition.y);
                 //CardAnimator.Play("TakeTop");
                 //CameraAnimator.SetBool("Enter", true);
                 yield return new WaitForSeconds(3.3f);
@@ -356,6 +359,7 @@ public class ControladorCarta : MonoBehaviour
                 CamaraParent.GetComponent<Animator>().Play("CardNormal");
                 OnCard = numbers[0];
                 _cardOnGoing++;
+                _cardParentUI.GetComponent<RectTransform>().anchoredPosition = new Vector2(_cardUiPos, _cardParentUI.GetComponent<RectTransform>().anchoredPosition.y);
                 //CardAnimator.Play("TakeTop");
                 CameraAnimator.SetBool("Enter", true);
                 yield return new WaitForSeconds(1);
@@ -374,16 +378,54 @@ public class ControladorCarta : MonoBehaviour
 
     public void NewTransformCreation()
     {
+        int y = 0;
+        int t = 0;
         _cardUIpos.Add(_firstTransform.transform);
         for (int i = 1; i < maxNumber; i++)
         {
+
             Image firstObj = Instantiate(_firstTransform, new Vector2(_firstTransform.transform.localPosition.x + 100 * 1, _firstTransform.transform.localPosition.y), Quaternion.Euler(0, 0, 0));
             firstObj.transform.parent = _cardParentUI.transform;
             firstObj.transform.localPosition = new Vector2(_firstTransform.transform.localPosition.x + 100 * i, _firstTransform.transform.localPosition.y);
             firstObj.transform.name = (i + 1).ToString();
             firstObj.transform.localScale = new Vector3(1, 1, 1);
             _cardUIpos.Add(firstObj.transform);
+            //y++;
+            //if(y >= 3)
+            //{
+            //    t++;
+            //    y = 0;
+            //}
+        }
 
+        _cardUILeftpos.Clear();
+
+        for (int i = 0; i < maxNumber; i++)
+        {
+            Image firstObj = Instantiate(
+                _firstTransform,
+                Vector2.zero,
+                Quaternion.identity
+            );
+
+            firstObj.transform.SetParent(_cardParentUI.transform);
+            firstObj.transform.localPosition = new Vector2(
+                _firstTransform.transform.localPosition.x + 100 * y,
+                _firstTransform.transform.localPosition.y - 100 * t
+            );
+
+            firstObj.transform.name = (i + 1).ToString();
+            firstObj.transform.localScale = Vector3.one;
+
+            _cardUILeftpos.Add(firstObj.transform);
+
+            y++;
+
+            if (y >= 4)
+            {
+                t++;
+                y = 0;
+            }
         }
     }
 
@@ -407,7 +449,7 @@ public class ControladorCarta : MonoBehaviour
 
         if (_cardOnGoing > 1)
         {
-            _objectsScript[0].GetComponent<ClickDragScroller>()._xLimit -= -100;        
+            //_objectsScript[0].GetComponent<ClickDragScroller>()._xLimit -= -100;        
             _cardUiPos -= 100f;
         }
     }
@@ -418,9 +460,16 @@ public class ControladorCarta : MonoBehaviour
       
         for(int i = 0; i < numbers.Count; i++)
         {
+           
             GameObject UIprefab1 = Instantiate(_cardUIpanel, new Vector2(0, 0), Quaternion.Euler(0, 0, 0));
             UIprefab1.transform.parent = _cardsLeftParent.transform;
-            UIprefab1.transform.localPosition = _cardUIpos[i].transform.localPosition;
+   
+        
+     
+                UIprefab1.transform.localPosition = _cardUILeftpos[i].transform.localPosition;
+     
+        
+  
             UIprefab1.transform.localScale = new Vector3(0.75f, 0.75f, 1);
             //UIprefab1.GetComponent<Image>().color = _allCards[OnCard - 1]._color;
             UIprefab1.GetComponent<CardUiScript>()._cardSprite.sprite = _allCards[numbers[i] - 1]._cardSprite;
@@ -430,9 +479,10 @@ public class ControladorCarta : MonoBehaviour
             _cardLeftUIobject.Add(UIprefab1);
             if(i > 1)
             {
-                _objectsScript[1].GetComponent<ClickDragScroller>()._xLimit -= -100;
+                //_objectsScript[1].GetComponent<ClickDragScroller>()._xLimit -= -100;
                 _cardLeftUiPos -= 100f;
             }
+       
 
         }
     }
@@ -562,10 +612,10 @@ public class ControladorCarta : MonoBehaviour
         _cardLeftUiPos = 0;
         for(int i = 0; i < _objectsScript.Length; i++)
         {
-            _objectsScript[i].GetComponent<ClickDragScroller>()._xInitial = 0;
-            _objectsScript[i].GetComponent<ClickDragScroller>()._xLimit = 0;
-            _objectsScript[i].GetComponent<ClickDragScroller>().newX = 0;
-            _objectsScript[i].GetComponent<ClickDragScroller>().lastMousePosition = new Vector2(0, 0);
+            //_objectsScript[i].GetComponent<ClickDragScroller>()._xInitial = 0;
+            //_objectsScript[i].GetComponent<ClickDragScroller>()._xLimit = 0;
+            //_objectsScript[i].GetComponent<ClickDragScroller>().newX = 0;
+            //_objectsScript[i].GetComponent<ClickDragScroller>().lastMousePosition = new Vector2(0, 0);
         }
         _camaraSize = 60;
         CameraAnimator.SetBool("Enter", false);

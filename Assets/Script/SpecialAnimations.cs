@@ -22,4 +22,9 @@ public class SpecialAnimations : MonoBehaviour
         _controlador.GetComponent<ControladorCarta>()._cardParticle.Play();
     }
 
+    public void BellSoundEffect()
+    {
+        _controlador.GetComponent<ControladorCarta>()._bellSound.Play();
+    }
+
 }

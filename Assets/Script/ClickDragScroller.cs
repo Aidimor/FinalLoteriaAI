@@ -7,29 +7,23 @@ public class ClickDragScroller : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public enum Type
     {
         Normal,
-        Left
+        Down
     }
+
     public Type _type;
 
     [SerializeField] private ControladorCarta _scriptController;
     public RectTransform content;
 
-    public Vector2 lastMousePosition;
-    public bool isDragging = false;
-    public bool hasMoved = false;  // 🔥 evita movimiento en el click
+    private Vector2 lastMousePosition;
+    private bool isDragging = false;
 
-    public float _xInitial;
-    public float _xLimit;
-
-    public float newX;
-
+    public float dragSensitivity = 1f;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
-        hasMoved = false;  // 🔥 Aún NO se ha movido
-      
-        lastMousePosition = new Vector2(newX, eventData.position.y);
+        lastMousePosition = eventData.position;
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -40,76 +34,42 @@ public class ClickDragScroller : MonoBehaviour, IPointerDownHandler, IPointerUpH
     public void OnDrag(PointerEventData eventData)
     {
         if (!isDragging) return;
+
+        bool canMove = false;
         Vector2 currentMousePosition = eventData.position;
-        Vector2 delta = currentMousePosition - lastMousePosition;
-
-
-        newX = lastMousePosition.x;
-
-        if (!hasMoved)
-        {
-            if (delta.magnitude < 0)   // 🔥 tolerancia para no mover en el click
-            {
-                return; // no mover aún
-            }
-
-            hasMoved = true; // ahora sí está moviendo
-        }
-
-
-        lastMousePosition = currentMousePosition;
-
-    }
-
-    void Update()
-    {
-
         switch (_type)
         {
             case Type.Normal:
-                if (_scriptController._cardOnGoing > 3 && hasMoved)
-                {
-                    if (isDragging)
-                    {
-                        content.anchoredPosition = Vector2.Lerp(
-               content.anchoredPosition,
-               new Vector2(lastMousePosition.x, content.anchoredPosition.y),
-               2f * Time.deltaTime
-           );
-                    }
-                    else
-                    {
-                        content.anchoredPosition = Vector2.Lerp(
-                                       content.anchoredPosition,
-                                       new Vector2(newX, content.anchoredPosition.y),
-                                       2f * Time.deltaTime
-                                   );
-                    }
-  
-                }
+                canMove = _scriptController._cardOnGoing > 3;
+                float deltaX = currentMousePosition.x - lastMousePosition.x;
+                if (!canMove) return;
+
+                lastMousePosition = currentMousePosition;
+
+                Vector2 pos = content.anchoredPosition;
+                pos.x += deltaX * dragSensitivity;
+
+                content.anchoredPosition = pos;
                 break;
-            case Type.Left:
-                if (_scriptController.numbers.Count > 3 && hasMoved)
-                {
-           
-                    if (isDragging)
-                    {
-                        content.anchoredPosition = Vector2.Lerp(
-                   content.anchoredPosition,
-                   new Vector2(lastMousePosition.x, content.anchoredPosition.y),
-                   2f * Time.deltaTime);
-                    }
-                    else
-                    {
-                        content.anchoredPosition = Vector2.Lerp(
-                                        content.anchoredPosition,
-                                        new Vector2(newX, content.anchoredPosition.y),
-                                        2f * Time.deltaTime
-                                    );
-                    }
-                }
+
+            case Type.Down:
+                canMove = _scriptController.numbers.Count > 4;
+                float deltaY = currentMousePosition.y - lastMousePosition.y;
+                if (!canMove) return;
+
+
+
+
+
+                lastMousePosition = currentMousePosition;
+
+                Vector2 posy = content.anchoredPosition;
+                posy.y += deltaY * dragSensitivity;
+
+                content.anchoredPosition = posy;
                 break;
         }
 
+   
     }
 }
