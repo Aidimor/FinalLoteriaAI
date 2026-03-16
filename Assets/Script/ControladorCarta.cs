@@ -8,7 +8,9 @@ using UnityEngine.Rendering.PostProcessing;
 public class ControladorCarta : MonoBehaviour
 {
     //[SerializeField] private ClickDragScroller _scriptDrag;
+    public PesoController _scriptPeso;
     public GameObject[] _objectsScript;
+    public DailyRewards _scriptDaily;
     public Color MainColor;
     public Image NameBackImage;
     public Image NumberBackImage;
@@ -125,6 +127,8 @@ public class ControladorCarta : MonoBehaviour
     public AudioClip[] _chooseSounds;
     public AudioSource _bellSound;
     public AudioSource _chargeSound;
+    public Animator _chessAnimator;
+    public bool _onDailyReward;
     public bool _gameStarts;
 
     // Start is called before the first frame update
@@ -145,6 +149,7 @@ public class ControladorCarta : MonoBehaviour
             lensDistortion.intensity.value = 30;
         }
         NewTransformCreation();
+        _scriptDaily.CanClaim();
         StartCoroutine(StartNumerator());
       
     }
@@ -152,9 +157,21 @@ public class ControladorCarta : MonoBehaviour
     public IEnumerator StartNumerator()
     {
         yield return new WaitForSeconds(1);
+
+
+        _scriptDaily.ClaimReward();
+        yield return new WaitForSeconds(0.1f);
+        while (_onDailyReward)
+        {
+            yield return null;
+            yield return new WaitForSeconds(6);
+        }
         _loteriaIconAnimator.SetBool("MainIn", true);
         yield return new WaitForSeconds(1);
         GetComponent<PesoController>()._startAnimator.SetBool("Start", true);
+
+    
+
     }
 
     public void DeckCreation()

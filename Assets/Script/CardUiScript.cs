@@ -4,6 +4,7 @@ using TMPro;
 
 public class CardUiScript : MonoBehaviour
 {
+    public Animator _parentAnimator;
     public int _cardID;
     public Image _cardSprite;
     public Image _Background;
