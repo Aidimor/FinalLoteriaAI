@@ -1264,7 +1264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &133336918
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11103,7 +11103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &637872699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15385,6 +15385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptPeso: {fileID: 999928356}
+  _scriptCardLoteria: {fileID: 999928357}
   _objectsScript:
   - {fileID: 42037785}
   - {fileID: 1239568469}
@@ -15909,6 +15910,8 @@ MonoBehaviour:
   _chargeSound: {fileID: 2076915876}
   _chessAnimator: {fileID: 844499485}
   _onDailyReward: 0
+  CardChoosed: 0
+  checkedTrue: 0
   _gameStarts: 0
 --- !u!4 &999928354
 Transform:
@@ -15974,6 +15977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptMain: {fileID: 999928353}
+  _parent: {fileID: 139872137}
   _allCards: []
   _cardsSelected: 
   _cardParent: {fileID: 2044164994}
@@ -16022,7 +16026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardAmount: 100
   hoursToWait: 24
-  _erase: 1
+  _erase: 0
 --- !u!1 &1015170928
 GameObject:
   m_ObjectHideFlags: 0
@@ -16686,6 +16690,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 999928353}
+        m_TargetAssemblyTypeName: ControladorCarta, Assembly-CSharp
+        m_MethodName: DeckCreation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 999928356}
         m_TargetAssemblyTypeName: PesoController, Assembly-CSharp
         m_MethodName: StartButton

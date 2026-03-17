@@ -9,6 +9,7 @@ public class ControladorCarta : MonoBehaviour
 {
     //[SerializeField] private ClickDragScroller _scriptDrag;
     public PesoController _scriptPeso;
+    public LoteriaCardScript _scriptCardLoteria;
     public GameObject[] _objectsScript;
     public DailyRewards _scriptDaily;
     public Color MainColor;
@@ -129,6 +130,8 @@ public class ControladorCarta : MonoBehaviour
     public AudioSource _chargeSound;
     public Animator _chessAnimator;
     public bool _onDailyReward;
+    public int CardChoosed;
+    public bool checkedTrue = false;
     public bool _gameStarts;
 
     // Start is called before the first frame update
@@ -322,6 +325,7 @@ public class ControladorCarta : MonoBehaviour
     public IEnumerator NewCardNumerator()
     {
         _gameStarts = true;
+        //Debug.Log("no pasa");
         _changingCard = true;
         _automaticTimer = _maxTimer;
         _flipAudio.Play();
@@ -392,6 +396,7 @@ public class ControladorCarta : MonoBehaviour
                 _changingCard = false;
                 break;
         }
+        //_gameStarts = true;
         _mainMenuAnimator.SetBool("MenuIn", true);
 
     }
@@ -613,33 +618,99 @@ public class ControladorCarta : MonoBehaviour
 
     public void RestartButton()
     {
+        _loteriaParent.SetActive(false);
+        CheckCardObtained();
+
+        //numbers.Clear();
+        //_cardOnGoing = 0;    
+        //_loteriaParent.gameObject.SetActive(false);
+        //for(int i = 0; i < _cardUIobject.Count; i++)
+        //{
+        //    Destroy(_cardUIobject[i]);
+        //}
+        //_cardUIobject.Clear();
+        //for(int i = 0; i < _cardLeftUIobject.Count; i++)
+        //{
+        //    Destroy(_cardLeftUIobject[i]);
+        //}
+        //_cardLeftUIobject.Clear();
+    
+        //_cardUiPos = 0;
+        //_cardLeftUiPos = 0;
+
+        //_camaraSize = 60;
+        //CameraAnimator.SetBool("Enter", false);
+        //_loteriaIconAnimator.SetBool("MainIn", true);
+    }
+
+
+    void CheckCardObtained()
+    {
+ 
+    
+        for (int i = 0; i < 16; i++)
+        {
+            if (SaveSystem.Instance.data._loteriaCardsID[i] == OnCard)
+            {
+                CardChoosed = i;
+
+                checkedTrue = true;
+                break;
+            }
+        }
+        Debug.Log("Checked:" + checkedTrue);
+        StartCoroutine(LoteriaCheckedNumerator());
+
+
+    }
+
+    public IEnumerator LoteriaCheckedNumerator()
+    {
+        switch (checkedTrue)
+        {
+            case true:
+                _scriptCardLoteria._parent.SetActive(true);
+                yield return new WaitForSeconds(1);
+                GetComponent<LoteriaCardScript>()._allCards[CardChoosed].GetComponent<Animator>().SetBool("CardOn", true);
+                yield return new WaitForSeconds(3);
+                _scriptCardLoteria._parent.SetActive(false);
+                _loteriaIconAnimator.SetBool("MainIn", true);
+                CameraAnimator.SetBool("Enter", false);
+                _camaraSize = 60;
+                yield return new WaitForSeconds(1);
+                GetComponent<PesoController>()._startAnimator.SetBool("Start", true);
+                break;
+            case false:
+                _scriptCardLoteria._parent.SetActive(false);
+                _loteriaIconAnimator.SetBool("MainIn", true);
+                CameraAnimator.SetBool("Enter", false);
+                _camaraSize = 60;
+                yield return new WaitForSeconds(1);
+                GetComponent<PesoController>()._startAnimator.SetBool("Start", true);
+                break;
+        }
+
         numbers.Clear();
         _cardOnGoing = 0;
-        //_cardsLeftParent.gameObject.SetActive(false);
         _loteriaParent.gameObject.SetActive(false);
-        for(int i = 0; i < _cardUIobject.Count; i++)
+        for (int i = 0; i < _cardUIobject.Count; i++)
         {
             Destroy(_cardUIobject[i]);
         }
         _cardUIobject.Clear();
-        for(int i = 0; i < _cardLeftUIobject.Count; i++)
+        for (int i = 0; i < _cardLeftUIobject.Count; i++)
         {
             Destroy(_cardLeftUIobject[i]);
         }
         _cardLeftUIobject.Clear();
-    
+
         _cardUiPos = 0;
         _cardLeftUiPos = 0;
-        for(int i = 0; i < _objectsScript.Length; i++)
-        {
-            //_objectsScript[i].GetComponent<ClickDragScroller>()._xInitial = 0;
-            //_objectsScript[i].GetComponent<ClickDragScroller>()._xLimit = 0;
-            //_objectsScript[i].GetComponent<ClickDragScroller>().newX = 0;
-            //_objectsScript[i].GetComponent<ClickDragScroller>().lastMousePosition = new Vector2(0, 0);
-        }
+
         _camaraSize = 60;
         CameraAnimator.SetBool("Enter", false);
         _loteriaIconAnimator.SetBool("MainIn", true);
+
     }
 
 

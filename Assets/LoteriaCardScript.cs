@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LoteriaCardScript : MonoBehaviour
 {
     [SerializeField] private ControladorCarta _scriptMain;
-
+    public GameObject _parent;
     public List<GameObject> _allCards = new List<GameObject>();
     public List<int> _cardsSelected = new List<int>();
 

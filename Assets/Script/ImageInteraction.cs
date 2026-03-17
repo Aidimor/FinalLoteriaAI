@@ -106,10 +106,10 @@ public class ImageInteraction : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
     public void ShortClickAction()
     {
-        if (!_controlador._gameStarts)
-        {
-            _controlador.DeckCreation();
-        }
+        //if (!_controlador._gameStarts)
+        //{
+        //    _controlador.DeckCreation();
+        //}
 
         if (!_controlador._changingCard)
         {

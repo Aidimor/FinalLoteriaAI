@@ -43,13 +43,14 @@ public class PesoController : MonoBehaviour
         if (SaveSystem.Instance.data._pesos > 10)
         {
             SaveSystem.Instance.data._pesos -= 10;
-            _startButton.SetActive(false);
+            _startAnimator.SetBool("Start", false);
+            //_startButton.SetActive(false);
 
             StartCoroutine(_scriptMain.NewCardNumerator());
         }
         else
         {
-            _watchAdsPanel.SetActive(true);
+            _startAnimator.SetBool("Start", false);
         }
 
     }
