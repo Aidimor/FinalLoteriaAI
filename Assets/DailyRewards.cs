@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 public class DailyRewards : MonoBehaviour
@@ -30,24 +30,22 @@ public class DailyRewards : MonoBehaviour
         {
             if (!CanClaim())
             {
-                Debug.Log("A�n no disponible");
+                Debug.Log("Aún no disponible");
                 return;
             }
         }
+
         GetComponent<ControladorCarta>()._onDailyReward = true;
-    
 
         // DAR RECOMPENSA
         GetComponent<PesoController>().ChestBigRewardChest();
         GetComponent<ControladorCarta>()._chessAnimator.SetTrigger("Chest");
-        //SaveSystem.Instance.data._pesos += rewardAmount;
-        //SaveSystem.Instance.Save();
 
-        //// Guardar fecha
-        //PlayerPrefs.SetString(LAST_CLAIM_KEY, DateTime.Now.ToString());
-        //PlayerPrefs.Save();
+        //  GUARDAR FECHA (ESTO ES LO QUE TE FALTA)
+        PlayerPrefs.SetString(LAST_CLAIM_KEY, DateTime.Now.ToString());
+        PlayerPrefs.Save();
 
-        //Debug.Log("Recompensa diaria otorgada: +" + rewardAmount);
+        Debug.Log("Recompensa diaria otorgada");
     }
 
     // Tiempo restante

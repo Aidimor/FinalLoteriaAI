@@ -8,6 +8,7 @@ public class PesoController : MonoBehaviour
 {
     [SerializeField] private ControladorCarta _scriptMain;
     [SerializeField] private TextMeshProUGUI _totalPesosText;
+    [SerializeField] private Interstitial _scriptAd;
     [SerializeField] private GameObject _startButton;
     [SerializeField] private GameObject _watchAdsPanel;
     [SerializeField] private GameObject _chestParent;
@@ -45,11 +46,12 @@ public class PesoController : MonoBehaviour
             SaveSystem.Instance.data._pesos -= 10;
             _startAnimator.SetBool("Start", false);
             //_startButton.SetActive(false);
-
+            SaveSystem.Instance.Save();
             StartCoroutine(_scriptMain.NewCardNumerator());
         }
         else
         {
+            _watchAdsPanel.SetActive(true);
             _startAnimator.SetBool("Start", false);
         }
 
@@ -58,6 +60,8 @@ public class PesoController : MonoBehaviour
     public void WatchAddButton()
     {
         _watchAdsPanel.SetActive(false);
+        _scriptAd.ShowAd();
+        ChestGiftSet();
     }
 
     public void BackAds()
@@ -70,19 +74,32 @@ public class PesoController : MonoBehaviour
     {
         _chestGiftText.text = _chestGifts[0].ToString();
         _rewardQuantity = _chestGifts[0];
+        _chestParent.GetComponent<Animator>().SetTrigger("Chest");
     }
 
     public void ChestBigRewardChest()
     {
         _chestGiftText.text = _chestGifts[2].ToString();
         _rewardQuantity = _chestGifts[2];
+        _chestParent.GetComponent<Animator>().SetTrigger("Chest");
     }
 
     public void ReceiveChestPrice()
+    {
+        StartCoroutine(ReceivePrizeNumerator());
+    }
+
+    public IEnumerator ReceivePrizeNumerator()
     {
         _chestParent.GetComponent<Animator>().SetTrigger("Open");
         SaveSystem.Instance.data._pesos += _rewardQuantity;
         SaveSystem.Instance.Save();
         _scriptMain._onDailyReward = false;
+        if (!GetComponent<ControladorCarta>()._gameStarts)
+        {
+
+         yield return new WaitForSeconds(3);
+            _startAnimator.SetBool("Start", true);
+        }
     }
 }

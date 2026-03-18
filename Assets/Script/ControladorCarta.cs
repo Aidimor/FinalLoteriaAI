@@ -159,21 +159,36 @@ public class ControladorCarta : MonoBehaviour
 
     public IEnumerator StartNumerator()
     {
-        yield return new WaitForSeconds(1);
-
+        bool _giftReceived = false;
 
         _scriptDaily.ClaimReward();
+
         yield return new WaitForSeconds(0.1f);
+
+        // Espera a que termine el reward
         while (_onDailyReward)
         {
             yield return null;
-            yield return new WaitForSeconds(6);
+            _giftReceived = true;
+         
         }
+
+        if (_giftReceived)
+        {
+            yield return new WaitForSeconds(3);
+        }
+        // Espera extra opcional
+ 
+
+        _camaraSize = 60;
         _loteriaIconAnimator.SetBool("MainIn", true);
+
         yield return new WaitForSeconds(1);
+
         GetComponent<PesoController>()._startAnimator.SetBool("Start", true);
 
-    
+        _onDailyReward = false;
+        SaveSystem.Instance.Save();
 
     }
 
@@ -482,7 +497,7 @@ public class ControladorCarta : MonoBehaviour
     public void LeftCardsCreation()
     {
 
-      
+        _cardsLeftParent.GetComponent<RectTransform>().anchoredPosition = new Vector2(_cardsLeftParent.GetComponent<RectTransform>().anchoredPosition.x, -225f);
         for(int i = 0; i < numbers.Count; i++)
         {
            
@@ -706,7 +721,7 @@ public class ControladorCarta : MonoBehaviour
 
         _cardUiPos = 0;
         _cardLeftUiPos = 0;
-
+        _topMenuDisplayed = false;
         _camaraSize = 60;
         CameraAnimator.SetBool("Enter", false);
         _loteriaIconAnimator.SetBool("MainIn", true);
